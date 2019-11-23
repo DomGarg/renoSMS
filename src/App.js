@@ -1,26 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+//import UserList from './components/UserList';
+import AddForm from './components/AddForm';
+import Footer from './components/Footer';
+import gif from './assets/phone.gif';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded: false,
+      //userList: [],
+      error: ""
+    };
+    //this.remove = this.remove.bind(this);
+    //this.add = this.add.bind(this);
+  }
+
+
+
+  render() {
+    return (
+      <div id="app-background">
+        <h1 id="header-text">renoSMS</h1>
+        <div id="app-body">
+          <div id="app-gif">
+            <img id="gif" src={gif} />
+          </div>
+          <div id="app-add">
+            <div id="app-slogan">
+              <h2 id="slogan">All home renovation quotes just by sending an SMS!</h2>
+            </div>
+            <AddForm addCallback={this.add} />
+          </div>
+        </div>
+        
+        <Footer />
+      </div>
+    );
+  }
 }
-
 export default App;
