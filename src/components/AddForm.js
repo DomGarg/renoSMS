@@ -8,10 +8,12 @@ class AddForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeNumber = this.handleChangeNumber.bind(this);
+    this.handleSkillName = this.handleSkillName.bind(this);
     this.shouldBeDisabled = this.shouldBeDisabled.bind(this);
     this.state = {
       name: "",
-      number: ""
+      number: "",
+      skill: ""
     };
   }
 
@@ -25,6 +27,12 @@ class AddForm extends Component {
   handleChangeNumber(event) {
     this.setState({
       number: event.target.value
+    });
+  }
+
+  handleSkillName(event) {
+    this.setState({
+      skill: event.target.value
     });
   }
 
@@ -42,10 +50,11 @@ class AddForm extends Component {
       if (number.length === 10) {
         number = "1" + number;
       }
-      this.props.addCallback(this.state.name, number);
+      this.props.addCallback(this.state.name, number, this.state.skill);
       this.setState({
         name: "",
-        number: ""
+        number: "",
+        skill: ""
       });
       event.preventDefault();
     }
@@ -66,8 +75,12 @@ class AddForm extends Component {
               <input className="uk-input uk-form-large" id="input-number" type="text" placeholder="1 (647) 244-7667" value={this.state.number} onChange={this.handleChangeNumber} />
               <label className="uk-form-label" htmlFor="input-number">Phone number</label>
           </div>
+          <div className="input-group">
+            <input className="uk-input uk-form-large" id="input-name" type="text" placeholder="Skill Name" value={this.state.skill} onChange={this.handleSkillName} />
+            <label className="uk-form-label" htmlFor="input-name">Skill</label>
+          </div>
           <div id="add-button-div">
-              <button id="add-button" type="submit" value="Submit" className="uk-button uk-button-large uk-button-primary" disabled={disabled}>Doody calls</button>
+              <button id="add-button" type="submit" value="Submit" className="uk-button uk-button-large uk-button-primary" disabled={disabled}>Submit</button>
           </div>
         </form>
         </div>
