@@ -68,16 +68,16 @@ class AddForm extends Component {
         <div id="form-body" className="uk-container">
         <form className="uk-form-horizontal uk-margin-large" onSubmit={this.handleSubmit}>
           <div className="input-group">
-            <input className="uk-input uk-form-large" id="input-name" type="text" placeholder="John Crapper" value={this.state.name} onChange={this.handleChangeName} />
-            <label className="uk-form-label" htmlFor="input-name">Name</label>
+            <input className="uk-input uk-form-large" id="input-name" type="text"  value={this.state.name} onChange={this.handleChangeName} />
+            <label className="uk-form-label" htmlFor="input-name">Company name</label>
           </div>
           <div className="input-group uk-margin">
-              <input className="uk-input uk-form-large" id="input-number" type="text" placeholder="1 (647) 244-7667" value={this.state.number} onChange={this.handleChangeNumber} />
+              <input className="uk-input uk-form-large" id="input-number" type="text" value={this.state.number} onChange={this.handleChangeNumber} />
               <label className="uk-form-label" htmlFor="input-number">Phone number</label>
           </div>
           <div className="input-group">
-            <input className="uk-input uk-form-large" id="input-name" type="text" placeholder="Skill Name" value={this.state.skill} onChange={this.handleSkillName} />
-            <label className="uk-form-label" htmlFor="input-name">Skill</label>
+            <input className="uk-input uk-form-large" id="input-name" type="text" value={this.state.skill} onChange={this.handleSkillName} />
+            <label className="uk-form-label" htmlFor="input-name">Construction specialty</label>
           </div>
           <div id="add-button-div">
               <button id="add-button" type="submit" value="Submit" className="uk-button uk-button-large uk-button-primary" disabled={disabled}>Submit</button>
